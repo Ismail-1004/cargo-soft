@@ -87,11 +87,17 @@
         &-result {
             display: flex;
             align-items: center;
+            justify-content: space-between;
 
             & p:first-child {
+                margin-left: 15px;
                 font-family: var(--MM700);
                 font-size: 20px;
-                margin-left: 15px;
+            }
+
+            & p:nth-child(2) {
+                font-family: var(--MM700);
+                font-size: 20px;
             }
 
             & span {
@@ -102,17 +108,11 @@
                 width: 113px;
                 height: 38px;
                 border-radius: 10px;
+                margin: 0 22px 0 65px;
                 
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            }
-
-            & p:nth-child(2) {
-                font-family: var(--MM700);
-                font-size: 20px;
-                color: #000000;
-                margin: 0 172px 0 106px;
             }
         }
     }
