@@ -13,7 +13,6 @@
 <style lang="scss" scoped>
 .wrapper {
   height: 100vh;
-  background: gray;
 
   &__content {
     display: flex;
