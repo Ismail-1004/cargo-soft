@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  extends: ["app/modules/home", "app/modules/track-code", "app/modules/cash"],
+  extends: ["app/modules/home", "app/modules/track-code", "app/modules/cash", "app/modules/photo"],
 
   css: ["./app/assets/styles/main.scss"],
 
