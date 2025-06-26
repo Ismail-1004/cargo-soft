@@ -26,7 +26,7 @@ const progress = [
     },
     {
         name: "TP-41",
-        progress: 100
+        progress: 10
     }
 ]
 </script>
@@ -122,6 +122,7 @@ const progress = [
             display: flex;
             align-items: center;
             gap: 8px;
+            width: 158px;
 
             &-progressBar {
                 width: 123px;
