@@ -1,11 +1,14 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, provide } from 'vue'
 
 const items = ref([
     {num: '1', name: 'Мухторжон', id: 'TP-41', phone: '+998 97 555 35 64', btn: 'Оплачено', status: 'paid'},
     {num: '2', name: 'Дилдора', id: 'TP-39', phone: '+998 97 555 35 64', btn: 'На складе', status: 'not-paid'},
     {num: '3', name: 'Машрапжон', id: 'TP-36', phone: '+998 97 555 35 64', btn: 'Не оплачено', status: 'inSclad'}
 ])
+
+const isModalActive = ref(false)
+provide('isModalActive', isModalActive)
 
 </script>
 
@@ -50,9 +53,10 @@ const items = ref([
                 <button class="race__content-btn">
                     Не оплаченные
                 </button>
-                <button class="race__content-sendBtn">
+                <button class="race__content-sendBtn" @click="isModalActive = true">
                     Отправить SMS
                 </button>
+                <ChildComponent />
             </div>
             <div class="race__content-table">
                 <div class="race__content-tableHead">
@@ -96,12 +100,15 @@ const items = ref([
                 </div>
             </div>
         </div>
+        <modal v-if="isModalActive" />
     </div>
 </template>
 
 <style lang="scss" scoped>
 .race{
     &__content{
+        position: relative;
+
         &-title{
             font-family: "Montserrat";
             font-weight: 600;
@@ -171,7 +178,7 @@ const items = ref([
         }
 
         &-sendBtn{
-            padding: 10px 0px;
+            padding: 10px 25px;
             background: linear-gradient(180deg, #149D80 0%, #20DDB5 100%);
             border-radius: 20px;
             border: 1px solid #149D80;
@@ -188,7 +195,7 @@ const items = ref([
         }
         
         &-tableHead{
-            padding: 20px 10px;
+            padding: 20px 40px;
             background: #F5F5F5;
             border: 1px solid #00000033;
             border-radius: 20px 20px 0 0;
@@ -198,7 +205,7 @@ const items = ref([
         }
 
         &-tableBody{
-            padding: 20px 10px;
+            padding: 20px 40px;
             background: inherit;
             border-left: 1px solid #00000033;
             border-right: 1px solid #00000033;
@@ -269,7 +276,7 @@ const items = ref([
 }
 
 .id{
-    max-width: 100px;
+    max-width: 144px;
     width: 100%;
     text-align: center;
 }
